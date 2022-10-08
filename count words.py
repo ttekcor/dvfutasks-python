@@ -15,7 +15,6 @@
 # print(f2)
 # with open("/home/rockett/Desktop/output.txt","w") as wp:
 #     wp.write(str(res_sum))
-from cgitb import reset
 
 
 f = open("/home/rockett/Desktop/input.txt" )
