@@ -1,0 +1,1 @@
+print(' '.join(([str(int(i)**2) for i in input().split()[::-1] if len(i)==1 and i.count('0')==False])))
