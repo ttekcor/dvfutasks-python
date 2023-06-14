@@ -1,8 +1,9 @@
 import random
+from numba import jit, cuda
 data = []
 coef = []
 temp_point = []
-with open("in.txt") as f:
+with open("input.txt") as f:
     count_task = int(f.readline())
     category_task = list(map(int,f.readline().split()))
     time = list(map(float,f.readline().split()))
@@ -18,7 +19,7 @@ temp = 0
 score = 0
 best_score = 0
 best_time = 999999999
-for y in range (0,random.randint(5,100)):
+for y in range (0,100000):
     for i in range(0,count_task):
         tmp_r = random.randint(0,count_dev-1)
         rand_list.append(tmp_r)
@@ -38,8 +39,10 @@ for y in range (0,random.randint(5,100)):
     temp_lst.append(rand_list)
     rand_list = []
 
-print([x+1 for x in best_list])
-
+gen = [x+1 for x in best_list]
+with open('output.txt','w') as fout:
+    fout.write(" ".join(str(x) for x in gen))
+    fout.close()
 
 
 
